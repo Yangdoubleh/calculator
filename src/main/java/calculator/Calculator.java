@@ -1,5 +1,7 @@
 package calculator;
 
+import calculator.operator.impl.PlusOperator;
+
 public class Calculator {
 
     private static Calculator calculator = new Calculator();
@@ -12,6 +14,10 @@ public class Calculator {
     }
 
     public void calResult(String cal) {
-        System.out.println("계산 결과 : " + cal);
+        try {
+
+        } catch (RuntimeException e) {
+            System.out.println(e);
+        }
     }
 }
