@@ -1,8 +1,14 @@
 package calculator;
 
+import calculator.factory.OperatorFactory;
+import calculator.operator.Operator;
+
+import java.math.BigDecimal;
+
 public class Calculator {
 
     private static Calculator calculator = new Calculator();
+    private final OperatorFactory operatorFactory = OperatorFactory.getInstance();
 
     private Calculator() {
     }
@@ -11,7 +17,16 @@ public class Calculator {
         return calculator;
     }
 
-    public void calResult(String cal) {
-        System.out.println("계산 결과 : " + cal);
+    public BigDecimal calResult(String cal) {
+        BigDecimal result = BigDecimal.ZERO;
+        try {
+            BigDecimal num1 = BigDecimal.valueOf(5);
+            BigDecimal num2 = BigDecimal.valueOf(10);
+            Operator operator = operatorFactory.createOperator("+");
+            result = operator.operator(num1, num2);
+        } catch (RuntimeException e) {
+            System.out.println(e);
+        }
+        return result;
     }
 }
