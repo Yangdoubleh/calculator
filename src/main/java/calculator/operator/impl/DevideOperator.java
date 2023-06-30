@@ -13,7 +13,7 @@ public class DevideOperator implements Operator {
     public static DevideOperator getInstance() { return devideOperator; }
 
     @Override
-    public BigDecimal operator(BigDecimal num1, BigDecimal num2) throws Exception {
+    public BigDecimal operator(BigDecimal num1, BigDecimal num2) throws ArithmeticException {
         return num1.divide(num2);
     }
 }
