@@ -2,10 +2,8 @@ package calculator;
 
 import calculator.factory.OperatorFactory;
 import calculator.operator.Operator;
-import calculator.operator.impl.PlusOperator;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class Calculator {
 
@@ -20,14 +18,15 @@ public class Calculator {
     }
 
     public BigDecimal calResult(String cal) {
+        BigDecimal result = BigDecimal.ZERO;
         try {
-            for (byte b : cal.getBytes()) {
-
-            }
-            Operator operator = operatorFactory.createOperator("");
-            return operator.operator();
+            BigDecimal num1 = BigDecimal.valueOf(5);
+            BigDecimal num2 = BigDecimal.valueOf(10);
+            Operator operator = operatorFactory.createOperator("+");
+            result = operator.operator(num1, num2);
         } catch (RuntimeException e) {
             System.out.println(e);
         }
+        return result;
     }
 }

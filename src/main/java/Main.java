@@ -14,6 +14,7 @@ public class Main {
                 System.out.println("계산식을 입력 해주세요. exit를 입력하면 시스템이 종료됩니다.");
                 String input = br.readLine();
                 if ("exit".equals(input)) {
+                    System.out.println("프로그램을 종료합니다.");
                     break;
                 }
                 BigDecimal result = calculator.calResult(input);

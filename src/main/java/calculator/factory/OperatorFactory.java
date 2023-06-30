@@ -14,6 +14,7 @@ import static calculator.factory.constant.OperatorType.*;
 
 public class OperatorFactory {
 
+    private static final Map<OperatorType, Operator> typeOperatorMap = new HashMap<>();
     private static OperatorFactory operatorFactory = new OperatorFactory();
     private OperatorFactory() {
         typeOperatorMap.put(PLUS, PlusOperator.getInstance());
@@ -26,7 +27,6 @@ public class OperatorFactory {
         return operatorFactory;
     }
 
-    private static final Map<OperatorType, Operator> typeOperatorMap = new HashMap<>();
 
 
     public Operator createOperator(String operator) {
