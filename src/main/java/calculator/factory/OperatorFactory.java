@@ -30,11 +30,7 @@ public class OperatorFactory {
 
 
     public Operator createOperator(String operator) {
-        try {
-            OperatorType operatorType = OperatorType.getOperator(operator);
-            return typeOperatorMap.get(operatorType);
-        } catch (NullPointerException e) {
-            throw new IllegalArgumentException("유효하지 않은 계산 기호 입니다.");
-        }
+        OperatorType operatorType = OperatorType.getOperator(operator);
+        return typeOperatorMap.get(operatorType);
     }
 }
