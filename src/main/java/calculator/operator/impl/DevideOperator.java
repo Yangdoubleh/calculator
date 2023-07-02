@@ -14,6 +14,6 @@ public class DevideOperator implements Operator {
 
     @Override
     public BigDecimal operator(BigDecimal num1, BigDecimal num2) throws ArithmeticException {
-        return num1.divide(num2);
+        return num1.divide(num2, 2, BigDecimal.ROUND_HALF_UP);
     }
 }
