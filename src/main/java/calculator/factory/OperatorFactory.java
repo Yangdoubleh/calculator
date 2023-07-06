@@ -13,9 +13,10 @@ import java.util.Map;
 import static calculator.factory.constant.OperatorType.*;
 
 public class OperatorFactory {
-
     private static final Map<OperatorType, Operator> typeOperatorMap = new HashMap<>();
-    private static OperatorFactory operatorFactory = new OperatorFactory();
+    private static class OperatorFactoryHolder {
+        private static final OperatorFactory instance = new OperatorFactory();
+    }
     private OperatorFactory() {
         typeOperatorMap.put(PLUS, PlusOperator.getInstance());
         typeOperatorMap.put(MINUS, MinusOperator.getInstance());
@@ -24,7 +25,7 @@ public class OperatorFactory {
     }
 
     public static OperatorFactory getInstance() {
-        return operatorFactory;
+        return OperatorFactoryHolder.instance;
     }
 
 

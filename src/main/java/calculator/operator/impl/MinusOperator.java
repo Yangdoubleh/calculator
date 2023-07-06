@@ -5,13 +5,16 @@ import calculator.operator.Operator;
 import java.math.BigDecimal;
 
 public class MinusOperator implements Operator {
-    private static MinusOperator minusOperator = new MinusOperator();
 
     private MinusOperator() {
     }
 
+    private static class MinusOperatorHolder {
+        private static final MinusOperator instance = new MinusOperator();
+    }
+
     public static MinusOperator getInstance() {
-        return minusOperator;
+        return MinusOperatorHolder.instance;
     }
 
     @Override

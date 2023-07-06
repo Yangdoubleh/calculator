@@ -11,7 +11,9 @@ import java.util.Optional;
 public class Calculator {
 
     private final Map<Byte, String> OPERATORMAP = new HashMap<>();
-    private static Calculator calculator = new Calculator();
+    private static class CalculatorHolder {
+        private static final Calculator instance = new Calculator();
+    }
     private final OperatorFactory operatorFactory = OperatorFactory.getInstance();
 
     private Calculator() {
@@ -23,7 +25,7 @@ public class Calculator {
     }
 
     public static Calculator getInstance() {
-        return calculator;
+        return CalculatorHolder.instance;
     }
 
     public BigDecimal calResult(String cal) {
@@ -38,8 +40,10 @@ public class Calculator {
             result = operator.operator(num1, num2);
         } catch (NullPointerException e) {
             System.out.println("유효하지 않은 계산 기호 입니다.");
+            throw e;
         } catch (RuntimeException e) {
             System.out.println(e);
+            throw e;
         }
         return result;
     }
