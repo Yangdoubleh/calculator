@@ -5,13 +5,15 @@ import calculator.operator.Operator;
 import java.math.BigDecimal;
 
 public class MultipleOperator implements Operator {
-    private static MultipleOperator multipleOperator = new MultipleOperator();
-
     private MultipleOperator() {
     }
 
+    private static class  MultipleOperatorHolder {
+        private static final MultipleOperator instance = new MultipleOperator();
+    }
+
     public static MultipleOperator getInstance() {
-        return multipleOperator;
+        return MultipleOperatorHolder.instance;
     }
 
     @Override

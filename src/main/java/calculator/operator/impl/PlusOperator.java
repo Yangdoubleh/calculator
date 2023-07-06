@@ -5,13 +5,17 @@ import calculator.operator.Operator;
 import java.math.BigDecimal;
 
 public class PlusOperator implements Operator {
-    private static PlusOperator plusOperator = new PlusOperator();
 
     private PlusOperator() {
     }
 
+    private static class PlusOperatorHolder {
+        private static final PlusOperator instance = new PlusOperator();
+    }
+
     public static PlusOperator getInstance() {
-        return plusOperator;
+
+        return PlusOperatorHolder.instance;
     }
 
     @Override

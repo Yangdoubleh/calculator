@@ -11,7 +11,9 @@ import java.util.Optional;
 public class Calculator {
 
     private final Map<Byte, String> OPERATORMAP = new HashMap<>();
-    private static Calculator calculator = new Calculator();
+    private static class CalculatorHolder {
+        private static final Calculator instance = new Calculator();
+    }
     private final OperatorFactory operatorFactory = OperatorFactory.getInstance();
 
     private Calculator() {
@@ -23,7 +25,7 @@ public class Calculator {
     }
 
     public static Calculator getInstance() {
-        return calculator;
+        return CalculatorHolder.instance;
     }
 
     public BigDecimal calResult(String cal) {
