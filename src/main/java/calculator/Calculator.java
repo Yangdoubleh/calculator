@@ -40,8 +40,10 @@ public class Calculator {
             result = operator.operator(num1, num2);
         } catch (NullPointerException e) {
             System.out.println("유효하지 않은 계산 기호 입니다.");
+            throw e;
         } catch (RuntimeException e) {
             System.out.println(e);
+            throw e;
         }
         return result;
     }
